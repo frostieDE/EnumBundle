@@ -1,5 +1,6 @@
 {
     "name": "frostiede/enum-bundle",
+    "version": "3.0.0",
     "description": "A library to integrate enums into the Symfony framework",
     "license": "MIT",
     "type": "symfony-bundle",
