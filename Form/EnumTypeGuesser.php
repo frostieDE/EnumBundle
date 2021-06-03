@@ -2,9 +2,9 @@
 
 namespace Fervo\EnumBundle\Form;
 
-use Doctrine\Common\Persistence\ManagerRegistry;
-use Doctrine\Common\Persistence\Mapping\MappingException;
 use Doctrine\ORM\Mapping\MappingException as LegacyMappingException;
+use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\Persistence\Mapping\MappingException;
 use Symfony\Component\Form\FormTypeGuesserInterface;
 use Symfony\Component\Form\Guess\Guess;
 use Symfony\Component\Form\Guess\TypeGuess;
@@ -23,14 +23,14 @@ class EnumTypeGuesser implements FormTypeGuesserInterface
         $this->doctrineFormMap = $doctrineFormMap;
     }
 
-    public function guessType($class, $property)
+    public function guessType(string $class, string $property)
     {
         if (!$this->registry) {
-            return;
+            return null;
         }
 
         if (!$ret = $this->getMetadata($class)) {
-            return;
+            return null;
         }
 
         list($metadata, $name) = $ret;
@@ -42,17 +42,17 @@ class EnumTypeGuesser implements FormTypeGuesserInterface
         }
     }
 
-    public function guessRequired($class, $property)
+    public function guessRequired(string $class, string $property)
     {
 
     }
 
-    public function guessMaxLength($class, $property)
+    public function guessMaxLength(string $class, string $property)
     {
 
     }
 
-    public function guessPattern($class, $property)
+    public function guessPattern(string $class, string $property)
     {
 
     }
